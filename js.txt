@@ -1,0 +1,20 @@
+In your current HTML pages, include plain JS
+When clicked on login, show form
+Form should contain 
+a) first name
+b) last name
+c) email
+d) DOB (age validation > 18 years)
+e) password (8 characters, 1 upper case, 1 symbol)
+f) confirm password
+Sign up button
+When user enters input and moves cursor out of input validation should happen
+When everything is valid, show a popup modal with success, save the email in local storag
+form validation
+
+When you are signing up again, check if that email is present in local storage, if it is present, show message, you are already registered
+
+
+error message
+
+highlight text
