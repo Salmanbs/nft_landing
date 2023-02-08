@@ -81,7 +81,62 @@
         <div class="header-actions">
           <!-- <input type="search" placeholder="Search" class="search-field"> -->
 
-          <button class="btn btn-primary">Collect Now</button>
+          <button id=login-btn class="btn btn-primary">Log in</button>
+
+          <div id="login-form" class="modal">
+            <div class="modal-content">
+              <span id="close-btn" class="close">&times;</span>
+              <form>
+                <div style="display: flex;">
+                  <label for="first-name">First name:</label>
+                  <input style="margin-left: 10px;" type="text" id="first-name" name="first-name" onblur="validateFirstName()">
+                  <div id="first-name-error"></div>
+                </div>
+                <br><br>
+                <div style="display: flex;">
+                  <label for="last-name">Last name:</label>
+                  <input style="margin-left: 10px;" type="text" id="last-name" name="last-name" onblur="validateLastName()">
+                  <div id="last-name-error"></div>
+                </div>
+                <br><br>
+                <div style="display: flex;">
+                  <label for="email">Email:</label>
+                  <input style="margin-left: 10px;" type="text" id="email" name="email" onblur="validateEmail()">
+                  <div id="error-message"></div>
+                </div>
+                <br><br>
+                <div style="display: flex;">
+                  <label for="dob">Date of Birth:</label>
+                  <input style="margin-left: 10px;" type="date" id="dob" name="dob" onblur="validateDOB()">
+                  <div id="error-message-dob"></div>
+                </div>
+                <br><br>
+                <div style="display: flex;">
+                  <label for="password">Password:</label>
+                  <input style="margin-left: 10px;" type="password" id="password" name="password" onblur="validatePassword()">
+                  <div id="password-error"></div>
+                </div>
+                <br><br>
+                <div style="display: flex;">
+                  <label for="confirm-password">Confirm Password:</label>
+                  <input style="margin-left: 10px;" type="password" id="confirm-password" name="confirm-password" onblur="validateConfirmPassword()">
+                  <div id="confirm-password-error"></div>
+              
+                </div>
+                <br><br>
+                <button id = "signup-button"  class="btn btn-primary" onclick="validateForm()">Signup</button>
+                <div id="error-message"></div>
+              </form>
+                <!-- <div id="success-modal" style="display:none">
+            <p>Form submitted successfully!</p>
+            <button onclick="closeModal()">Close</button>
+          </div> -->
+            </div>
+          </div>
+
+        
+
+
         </div>
 
       </div>
@@ -710,7 +765,7 @@
     </div>
 
 
-    </div> 
+    </div>
 
   </footer>
 
@@ -733,7 +788,7 @@
   <!-- 
     - custom js link
   -->
-  <!-- <script src="./assets/js/script.js"></script> -->
+  <script src="script.js"></script>
 
   <!-- 
     - ionicon link
