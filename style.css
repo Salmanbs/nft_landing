@@ -52,7 +52,7 @@ button,a,input,[tabindex]{outline-offset:4px}::-webkit-scrollbar{width:10px}::-w
 
 #first-name-error,#last-name-error,
 #error-message, #confirm-password-error,
-#password-error {
+#password-error,#error-message-dob {
 color: red;
 }
 

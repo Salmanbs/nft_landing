@@ -50,11 +50,7 @@ closeBtn.addEventListener("click", function() {
   loginForm.style.display = "none";
 });
 
-window.addEventListener("click", function(event) {
-  if (event.target === loginForm) {
-    loginForm.style.display = "none";
-  }
-});
+
 
 function validateDOB() {
   let dob = new Date(document.getElementById("dob").value);
@@ -66,11 +62,25 @@ function validateDOB() {
   }
 
   if (age < 18) {
-    document.getElementById("error-message").innerHTML = "You must be at least 18 years old to sign up.";
+    document.getElementById("error-message-dob").innerHTML = "You must be at least 18 years old to sign up.";
   } else {
     document.getElementById("error-message").innerHTML = "";
   }
 }
+
+function validateDOB() {
+  let dob = new Date(document.getElementById("dob").value);
+  let age = new Date(Date.now() - dob.getTime());
+
+  let ageInYears = age.getFullYear() - 1970;
+
+  if (ageInYears < 18) {
+    document.getElementById("error-message-dob").innerHTML = "You must be at least 18 years old to sign up.";
+  } else {
+    document.getElementById("error-message").innerHTML = "";
+  }
+}
+
 
 function validateEmail() {
   let email = document.getElementById("email").value;
@@ -87,7 +97,9 @@ function validateEmail() {
 function validateFirstName() {
   let firstName = document.getElementById("first-name").value;
 
-  if (firstName.length > 25) {
+  if (!firstName.trim().length) {
+    document.getElementById("first-name-error").innerHTML = "First name cannot be an empty string or only whitespace.";
+  } else if (firstName.length > 25) {
     document.getElementById("first-name-error").innerHTML = "First name must not exceed 25 characters.";
   } else {
     document.getElementById("first-name-error").innerHTML = "";
@@ -97,7 +109,9 @@ function validateFirstName() {
 function validateLastName() {
   let lastName = document.getElementById("last-name").value;
 
-  if (lastName.length > 25) {
+  if (!lastName.trim().length) {
+    document.getElementById("last-name-error").innerHTML = "Last name cannot be an empty string or only whitespace.";
+  } else if (lastName.length > 25) {
     document.getElementById("last-name-error").innerHTML = "Last name must not exceed 25 characters.";
   } else {
     document.getElementById("last-name-error").innerHTML = "";
@@ -136,7 +150,7 @@ function validateForm() {
   validatePassword();
   validateConfirmPassword();
 
-  let errorDivs = document.querySelectorAll("first-name-error,last-name-error,error-message, confirm-password-error,password-error");
+  let errorDivs = document.querySelectorAll("#first-name-error,#last-name-error,#error-message, #confirm-password-error,#password-error");
 
   // let errorDivs = documentget.ElementsByClassName("error-message");
   let hasError = false;
@@ -151,7 +165,7 @@ function validateForm() {
   let email = document.getElementById("email").value;
   if (localStorage.getItem("email") === email) {
     document.getElementById("error-message").innerHTML = "You are already registered with this email";
-    console.log("you are already stored")
+    // console.log("you are already stored")
     alert("You are already registered with this email" )
     hasError = true;
   }
